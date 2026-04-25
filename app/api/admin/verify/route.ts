@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'admin123'
+export const dynamic = 'force-dynamic'
+
+const ADMIN_PASSWORD = 'anka123' // İstediğiniz şifre
 
 export async function POST(request: NextRequest) {
   try {
@@ -13,18 +15,25 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    // Admin şifresi kontrolü
     if (password === ADMIN_PASSWORD) {
-      return NextResponse.json({ success: true })
+      return NextResponse.json({ 
+        success: true, 
+        message: 'Giriş başarılı',
+        token: 'verified'
+      })
     } else {
-      return NextResponse.json(
-        { error: 'Hatalı şifre' },
-        { status: 401 }
-      )
+      return NextResponse.json({ 
+        success: false, 
+        error: 'Hatalı şifre' 
+      }, { status: 401 })
     }
+
   } catch (error) {
-    return NextResponse.json(
-      { error: 'Sunucu hatası' },
-      { status: 500 }
-    )
+    console.error('Login error:', error)
+    return NextResponse.json({ 
+      success: false, 
+      error: 'Bir hata oluştu' 
+    }, { status: 500 })
   }
 }

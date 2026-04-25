@@ -12,6 +12,10 @@ VALUES ('magazines', 'magazines', true)
 ON CONFLICT (id) DO NOTHING;
 
 -- Storage bucket için RLS politikaları
+DROP POLICY IF EXISTS "Public read access" ON storage.objects;
+DROP POLICY IF EXISTS "Admin upload access" ON storage.objects;
+DROP POLICY IF EXISTS "Admin delete access" ON storage.objects;
+
 CREATE POLICY "Public read access"
 ON storage.objects FOR SELECT
 TO public

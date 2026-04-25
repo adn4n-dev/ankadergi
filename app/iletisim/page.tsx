@@ -71,43 +71,39 @@ export default function IletisimPage() {
           </div>
 
           {/* Contact Info Grid */}
-                </div>
-              </div>
-              
-              <h2 className="font-serif text-2xl font-bold text-foreground mb-4">
-                Bize Ulaşın
-              </h2>
-              
-              <p className="text-muted-foreground mb-8">
-                Her türlü soru, görüş ve önerileriniz için bizimle iletişime geçebilirsiniz.
-              </p>
-
-              <div className="space-y-6">
-                <div className="bg-secondary/50 rounded-lg p-6">
-                  <h3 className="font-semibold text-foreground mb-2">E-posta</h3>
-                  <a 
-                    href="mailto:Anka20Nfkal26@gmail.com"
-                    className="text-primary hover:text-primary/80 transition-colors text-lg"
-                  >
-                    Anka20Nfkal26@gmail.com
-                  </a>
-                </div>
-
-                <div className="text-sm text-muted-foreground">
-                  <p>Mesai saatlerimiz: Hafta içi 09:00 - 18:00</p>
-                  <p>Size en kısa sürede dönüş yapmaya çalışacağız.</p>
-                </div>
-              </div>
-
-              <div className="mt-8">
-                <Link 
-                  href="/"
-                  className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  ← Ana Sayfaya Dön
-                </Link>
-              </div>
+          <div className="space-y-6">
+            <div className="bg-secondary/50 rounded-lg p-6">
+              <h3 className="font-semibold text-foreground mb-2">E-posta</h3>
+              <a 
+                href="mailto:Anka20Nfkal26@gmail.com"
+                className="text-primary hover:text-primary/80 transition-colors text-lg"
+              >
+                Anka20Nfkal26@gmail.com
+              </a>
             </div>
+
+            <div className="text-sm text-muted-foreground">
+              <p>Mesai saatlerimiz: Hafta içi 09:00 - 18:00</p>
+              <p>Size en kısa sürede dönüş yapmaya çalışacağız.</p>
+            </div>
+          </div>
+
+          <div className="mt-8">
+            <h2 className="font-serif text-2xl font-bold text-foreground mb-4">
+              Bize Ulaşın
+            </h2>
+            <p className="text-muted-foreground mb-8">
+              Her türlü soru, görüş ve önerileriniz için bizimle iletişime geçebilirsiniz.
+            </p>
+          </div>
+
+          <div>
+            <Link 
+              href="/"
+              className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+            >
+              ← Ana Sayfaya Dön
+            </Link>
           </div>
         </div>
       </main>

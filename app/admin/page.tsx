@@ -19,6 +19,30 @@ export default function AdminPage() {
     }
   }
 
+  const handleUpload = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    const form = e.currentTarget
+    const formData = new FormData(form)
+    
+    try {
+      const response = await fetch('/api/admin/upload', {
+        method: 'POST',
+        body: formData,
+      })
+      
+      const data = await response.json()
+      
+      if (response.ok) {
+        alert(data.message)
+        form.reset()
+      } else {
+        alert(data.error || 'Yükleme başarısız')
+      }
+    } catch (error) {
+      alert('Yükleme sırasında hata oluştu')
+    }
+  }
+
   if (!isLoggedIn) {
     return (
       <div className="min-h-screen bg-background">
@@ -105,7 +129,7 @@ export default function AdminPage() {
                   </p>
                 </div>
                 
-                <form action="/api/admin/upload" method="POST" encType="multipart/form-data" className="space-y-4">
+                <form onSubmit={handleUpload} className="space-y-4">
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">
                       Dergi PDF

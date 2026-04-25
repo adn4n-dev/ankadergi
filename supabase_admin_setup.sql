@@ -39,8 +39,8 @@ CREATE TABLE IF NOT EXISTS magazines (
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
--- Admin kullanıcısı oluştur (şifre: admin123)
+-- Admin kullanıcısı oluştur (şifre: wcebcoy4GgCA8IfH)
 -- Not: Gerçek uygulamada bcrypt ile hash'lenmiş şifre kullanın
 INSERT INTO admins (email, password_hash)
-VALUES ('admin@ankadergi.com', '$2b$10$placeholder_hash_for_admin123')
+VALUES ('admin@ankadergi.com', 'wcebcoy4GgCA8IfH')
 ON CONFLICT (email) DO NOTHING;

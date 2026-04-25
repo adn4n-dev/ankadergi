@@ -126,7 +126,7 @@ export default function AdminPage() {
               <div className="mt-6 p-4 bg-muted rounded-md text-xs text-muted-foreground">
                 <p className="font-semibold mb-1">Demo Bilgileri:</p>
                 <p>Email: admin@ankadergi.com</p>
-                <p>Şifre: admin123</p>
+                <p>Şifre: wcebcoy4GgCA8IfH</p>
               </div>
 
               <div className="mt-6 text-center">

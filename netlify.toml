@@ -6,7 +6,5 @@
   NODE_VERSION = "20"
   NPM_FLAGS = "--prefer-offline"
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+[[plugins]]
+  package = "@netlify/plugin-nextjs"

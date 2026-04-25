@@ -48,7 +48,6 @@ export default function IletisimPage() {
       description: "Pazar günleri kapalıyız"
     }
   ]
-  ]
 
   return (
     <div className="min-h-screen bg-background">

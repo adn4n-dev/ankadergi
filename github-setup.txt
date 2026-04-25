@@ -1,0 +1,21 @@
+# GitHub Push Son Adım
+
+## GitHub Repository Oluştur
+1. GitHub.com'a git
+2. "New repository" de
+3. Repository name: mythology-website
+4. Public olarak ayarla
+5. "Create repository" de
+
+## Push Komutu
+Aşağıdaki komutta KULLANICI-ADINIZ yazan yeri kendi GitHub kullanıcı adınızla değiştirin:
+
+powershell -Command "cd 'c:\Users\adn4m\Downloads\v0-mythology-website-main'; git remote add origin https://github.com/KULLANICI-ADINIZ/mythology-website.git"
+
+powershell -Command "cd 'c:\Users\adn4m\Downloads\v0-mythology-website-main'; git push -u origin main"
+
+## Mevcut Durum
+✅ Git reposu hazır
+✅ Dosyalar eklendi
+✅ Commit yapıldı
+✅ Sadece GitHub'a push kaldı

@@ -8,14 +8,38 @@ import Image from "next/image"
 
 export default function AdminPage() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState('')
 
-  const handleLogin = async () => {
-    if (password === 'anka123') {
-      setIsLoggedIn(true)
-      localStorage.setItem('admin_token', 'verified')
-    } else {
-      alert('Hatalı şifre!')
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsLoading(true)
+    setError('')
+
+    try {
+      const response = await fetch('/api/admin/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+      })
+
+      const data = await response.json()
+
+      if (response.ok) {
+        localStorage.setItem('admin_token', JSON.stringify({
+          adminId: data.adminId,
+          email: data.email
+        }))
+        setIsLoggedIn(true)
+      } else {
+        setError(data.error || 'Giriş başarısız')
+      }
+    } catch (err) {
+      setError('Bir hata oluştu')
+    } finally {
+      setIsLoading(false)
     }
   }
 
@@ -56,31 +80,53 @@ export default function AdminPage() {
               </h1>
               <p className="text-center text-muted-foreground mb-8">Admin Girişi</p>
 
-              <div className="space-y-4">
+              <form onSubmit={handleLogin} className="space-y-4">
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
-                    Yönetici Şifresi
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="admin@ankadergi.com"
+                    required
+                    className="w-full px-3 py-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-2">
+                    Şifre
                   </label>
                   <input
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Şifre girin"
+                    required
                     className="w-full px-3 py-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
                   />
                 </div>
 
+                {error && (
+                  <div className="bg-red-50 text-red-700 p-3 rounded-md text-sm">
+                    {error}
+                  </div>
+                )}
+
                 <button
-                  onClick={handleLogin}
-                  className="w-full bg-primary hover:bg-primary/90 text-white px-4 py-3 rounded-lg font-medium transition-colors"
+                  type="submit"
+                  disabled={isLoading}
+                  className="w-full bg-primary hover:bg-primary/90 text-white px-4 py-3 rounded-lg font-medium transition-colors disabled:opacity-50"
                 >
-                  Giriş Yap
+                  {isLoading ? 'Giriş yapılıyor...' : 'Giriş Yap'}
                 </button>
-              </div>
+              </form>
 
               <div className="mt-6 p-4 bg-muted rounded-md text-xs text-muted-foreground">
-                <p className="font-semibold mb-1">Demo Şifresi:</p>
-                <p>anka123</p>
+                <p className="font-semibold mb-1">Demo Bilgileri:</p>
+                <p>Email: admin@ankadergi.com</p>
+                <p>Şifre: admin123</p>
               </div>
 
               <div className="mt-6 text-center">
@@ -132,7 +178,32 @@ export default function AdminPage() {
                 <form onSubmit={handleUpload} className="space-y-4">
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">
-                      Dergi PDF
+                      Dergi Başlığı *
+                    </label>
+                    <input
+                      type="text"
+                      name="title"
+                      placeholder="Dergi başlığı"
+                      required
+                      className="w-full px-3 py-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label className="block text-sm font-medium text-foreground mb-2">
+                      Açıklama
+                    </label>
+                    <textarea
+                      name="description"
+                      placeholder="Dergi açıklaması"
+                      rows={3}
+                      className="w-full px-3 py-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-foreground mb-2">
+                      Dergi PDF *
                     </label>
                     <input
                       type="file"
@@ -145,7 +216,7 @@ export default function AdminPage() {
                   
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">
-                      Kapak Görseli
+                      Kapak Görseli *
                     </label>
                     <input
                       type="file"

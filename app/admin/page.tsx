@@ -20,36 +20,24 @@ export default function AdminPage() {
           </header>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Photos Section */}
+            {/* Dergi Upload Section */}
             <div className="bg-card rounded-2xl p-8 shadow-lg border border-border/50">
               <h3 className="font-serif text-xl font-bold text-foreground mb-6">
-                Fotoğraflar
+                Dergi Yükle
               </h3>
               <div className="space-y-4">
-                <div className="aspect-video bg-secondary/20 rounded-lg overflow-hidden">
-                  <Image
-                    src="/images/phoenix-logo.jpg"
-                    alt="Anka Kuşu"
-                    fill
-                    className="object-cover"
-                  />
+                <div className="border-2 border-dashed border-border/50 rounded-lg p-6 text-center">
+                  <div className="text-4xl text-muted-foreground mb-2">📄</div>
+                  <p className="text-sm text-muted-foreground">
+                    Dergi PDF ve kapak görseli yükleyebilirsiniz
+                  </p>
                 </div>
-                <div className="aspect-video bg-secondary/20 rounded-lg overflow-hidden">
-                  <Image
-                    src="/images/hero-bg.jpg"
-                    alt="Hero Background"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="aspect-video bg-secondary/20 rounded-lg overflow-hidden">
-                  <Image
-                    src="/images/column-left.jpg"
-                    alt="Column Left"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
+                <Link 
+                  href="/admin/login"
+                  className="block w-full text-center bg-primary text-primary-foreground px-4 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors"
+                >
+                  Dergi Yükleme Sistemi
+                </Link>
               </div>
             </div>
 
@@ -87,38 +75,11 @@ export default function AdminPage() {
                   Ana Sayfayı Görüntüle
                 </Link>
                 <Link 
-                  href="/yazilar"
-                  className="block w-full text-center bg-secondary text-secondary-foreground px-4 py-3 rounded-lg font-medium hover:bg-secondary/90 transition-colors"
-                >
-                  Yazıları Yönet
-                </Link>
-                <Link 
                   href="/dergiler"
-                  className="block w-full text-center bg-accent text-accent-foreground px-4 py-3 rounded-lg font-medium hover:bg-accent/90 transition-colors"
+                  className="block w-full text-center bg-secondary text-secondary-foreground px-4 py-3 rounded-lg font-medium hover:bg-secondary/90 transition-colors"
                 >
                   Dergileri Yönet
                 </Link>
-              </div>
-            </div>
-
-            {/* Recent Activity */}
-            <div className="bg-card rounded-2xl p-8 shadow-lg border border-border/50">
-              <h3 className="font-serif text-xl font-bold text-foreground mb-6">
-                Son Aktiviteler
-              </h3>
-              <div className="space-y-3">
-                <div className="p-3 bg-secondary/30 rounded-lg">
-                  <p className="text-sm text-muted-foreground">Yeni makale eklendi: "Anka Kuşu Mitolojisi"</p>
-                  <p className="text-xs text-muted-foreground">2 saat önce</p>
-                </div>
-                <div className="p-3 bg-secondary/30 rounded-lg">
-                  <p className="text-sm text-muted-foreground">Yeni dergi yayınlandı: "Anka Dergi Sayı 5"</p>
-                  <p className="text-xs text-muted-foreground">1 gün önce</p>
-                </div>
-                <div className="p-3 bg-secondary/30 rounded-lg">
-                  <p className="text-sm text-muted-foreground">Yeni yorum: "Harika içerik!"</p>
-                  <p className="text-xs text-muted-foreground">3 saat önce</p>
-                </div>
               </div>
             </div>
           </div>

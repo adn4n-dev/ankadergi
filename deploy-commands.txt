@@ -1,0 +1,14 @@
+# GitHub Push Komutları
+# Git kurulumundan sonra sırayla çalıştırın
+
+cd "c:\Users\adn4m\Downloads\v0-mythology-website-main"
+
+git init
+git add .
+git commit -m "Mythology website - completed with all features"
+
+git branch -M main
+git remote add origin https://github.com/KULLANICI-ADINIZ/mythology-website.git
+git push -u origin main
+
+# Not: KULLANICI-ADINIZ yazan yeri kendi GitHub kullanıcı adınızla değiştirin

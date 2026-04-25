@@ -22,7 +22,7 @@ export function PopularArticles() {
       try {
         const response = await fetch('/api/articles')
         const data = await response.json()
-        setArticles(data.slice(0, 3))
+        setArticles(Array.isArray(data) ? data.slice(0, 3) : [])
       } catch (error) {
         console.error('Error fetching articles:', error)
       } finally {

@@ -7,6 +7,7 @@ import { useState } from "react"
 
 const navItems = [
   { label: "Ana Sayfa", href: "/" },
+  { label: "Dergiler", href: "/dergiler" },
   { label: "Yazılar", href: "/yazilar" },
   { label: "Mitoloji", href: "/mitoloji" },
   { label: "Kültür", href: "/kultur" },
@@ -18,7 +19,7 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <header className="absolute top-0 left-0 right-0 z-50">
+    <header className="absolute top-0 left-0 right-0 z-50 bg-white/20 backdrop-blur-sm border-b border-white/10">
       <div className="container mx-auto px-4 py-4">
         <nav className="flex items-center justify-between">
           {/* Desktop Navigation */}
@@ -27,11 +28,11 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-foreground/80 hover:text-foreground transition-colors font-medium text-sm tracking-wide"
+            className="text-foreground/90 hover:text-foreground transition-colors font-medium text-sm tracking-wide"
               >
                 {item.label}
                 {index < navItems.length - 1 && (
-                  <span className="ml-6 text-primary/40">·</span>
+                  <span className="ml-6 text-foreground/30">·</span>
                 )}
               </Link>
             ))}
@@ -40,7 +41,7 @@ export function Header() {
           {/* CTA Button */}
           <Link
             href="/kesif"
-            className="hidden md:inline-flex items-center gap-2 bg-gradient-to-r from-primary to-accent text-primary-foreground px-6 py-2 rounded-full font-medium text-sm shadow-lg hover:shadow-xl transition-all hover:scale-105"
+            className="hidden md:inline-flex items-center gap-2 bg-primary text-white px-6 py-2 rounded-full font-medium text-sm shadow-lg hover:shadow-xl transition-all hover:scale-105 hover:bg-primary/90"
           >
             Keşfe Başlayın
           </Link>

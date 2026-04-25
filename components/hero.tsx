@@ -14,7 +14,7 @@ export function Hero() {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/10 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-background/50" />
       </div>
 
       {/* Decorative Columns */}
@@ -49,16 +49,16 @@ export function Hero() {
         </div>
 
         {/* Heading */}
-        <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 text-balance leading-tight">
+        <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 text-balance leading-tight drop-shadow-lg">
           Fikirler Sınırların
           <br />
-          <span className="text-primary">Ötesine Kanat Açar</span>
+          <span className="text-primary drop-shadow-md">Ötesine Kanat Açar</span>
         </h1>
 
         {/* CTA Button */}
         <Link
           href="/yazilar"
-          className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-accent text-primary-foreground px-8 py-3 rounded-full font-medium text-lg shadow-xl hover:shadow-2xl transition-all hover:scale-105 border-2 border-primary/30"
+          className="inline-flex items-center gap-2 bg-primary text-white px-8 py-3 rounded-full font-medium text-lg shadow-xl hover:shadow-2xl transition-all hover:scale-105 hover:bg-primary/90"
         >
           Yazıları Keşfet
           <ChevronRight size={20} />

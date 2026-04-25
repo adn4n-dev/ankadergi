@@ -16,23 +16,9 @@ const sourceSans = Source_Sans_3({
 export const metadata: Metadata = {
   title: 'Anka Dergi - Fikirler Sınırların Ötesine Kanat Açar',
   description: 'Mitoloji, kültür ve tarih hakkında derinlemesine yazılar. Anka Kuşu gibi yeniden doğuşun gücünü keşfedin.',
-  generator: 'v0.app',
   icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
+    icon: '/images/phoenix-logo.jpg',
+    apple: '/images/phoenix-logo.jpg',
   },
 }
 
